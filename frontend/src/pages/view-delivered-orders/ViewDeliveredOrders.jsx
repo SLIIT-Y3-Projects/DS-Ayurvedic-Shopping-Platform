@@ -8,6 +8,7 @@ function ViewDeliveredOrders() {
 
 
   const sellerName = localStorage.getItem("uId");
+  const stripId = localStorage.getItem("stripeUserId");
 
   const navSeller=(seller)=>{
 
@@ -32,7 +33,7 @@ function ViewDeliveredOrders() {
       <div className="mt-10 max-w-md mx-auto space-y-5">
         {orders &&
           orders
-            .filter((elem) => elem.supplier == sellerName && elem.status == "delivered")
+          .filter((elem) => elem.stripeUserId == stripId && elem.status == "delivered")
             .map((order) => (
               <div key={order._id} className="bg-white rounded-lg p-6 shadow-md">
                 <p className="text-lg font-semibold mb-4">Order ID: {order._id}</p>
